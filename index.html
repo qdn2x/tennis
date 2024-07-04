@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <title>Tennis Eq</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+            <!--link rel="stylesheet" href="../navbar-quang.css"-->
+            <style>
+                button {padding: 10px 10px;}
+                body {
+                    font-family: 'Georgia, serif';
+                }
+                table, th, td {
+                    border-collapse: collapse;
+                }
+                ul a {
+                    display:block;
+                    color: white;
+                    text-align: center;
+                    padding: 12px 10px;
+                    text-decoration: none;
+                }
+                .deco {
+                    width: 130px;
+                }
+                .rgb {
+                  /*border-radius: 50%;*/ 
+                  width:30px; 
+                  border: 1px solid gray;
+                  padding: 0px 0px;
+                  color: white;
+                }
+            </style>
+
+
+            <script>
+                var info = "<h1><u>WHAT WE DO</u></h1><h1>1. WE LIST TENNIS TOURNAMENTS FOR PLAYERS OF ALL SKILL LEVELS</h1><h1>2. WE LIST PLAYERS SO YOU CAN CONTACT FOR INDIVIDUAL MATCHES</h1>";
+            </script>
+
+            <a onclick='
+               scElem("s0");
+                //var data = "<h1>SIGN UP TO PLAY IN A TENNIS TOURNAMENT</h1> or <h1>CONTACT PLAYERS FOR INDIVIDUAL MATCHES</h1>";
+                setElem("s0",info);
+                '><h1>TENNIS<br>directory</h1>
+            </a>
+                
+            <button onclick="bgc('#e0dd0b','black')" style="background-color:#e0dd0b" class='rgb'>.</button><!--yellow-->
+            <button onclick="bgc('#a83523','white')" style="background-color:#a83523" class='rgb'>.</button><!--red-->
+            <button onclick="bgc('white','black')" style="background-color:white" class='rgb'>.</button>
+            <button onclick="bgc('#325aa8','white')" style="background-color:#325aa8" class='rgb'>.</button><!--blue-->
+            <button onclick="bgc('#32a852','white')" style="background-color:#32a852" class='rgb'>.</button><!--green-->
+            <button onclick="bgc('black','white')" style="background-color:black" class='rgb'>.</button>
+            <button onclick="bgc('#823fa1','white')" style="background-color:#823fa1" class='rgb'>.</button><!--purple-->
+            <button onclick="bgc('#734e24','white')" style="background-color:#734e24" class='rgb'>.</button><!--brown-->
+        </head>
+
+
+    <body>
+        <h1><i>CURRENTLY CLOSED.  WE WILL BE OPEN FOR BUSINESS IN AUGUST 2024</i></h1>
+        <section id='s0'><!--h1>PLAY WITH US</h1-->
+            <h1><u>WHAT WE DO</u></h1>
+            <h1>1. WE LIST TENNIS TOURNAMENTS FOR PLAYERS OF ALL SKILL LEVELS</h1>
+            <h1>2. WE LIST PLAYERS SO YOU CAN CONTACT FOR INDIVIDUAL MATCHES</h1>
+            </section><!--dummy-->
+    
+        <!--section id='aSe ct'-->
+
+            <header>
+                    <br>
+                    <a id="ss2"
+                    onclick="
+                        //switchSection(playersdirSection,playersA);
+                        //var x = document.getElementById(playersdirSection);
+                        //if(x.style.display==none || gGotPlayersList) return;
+                        scElem('s2');
+                        if(gGotPlayersList) return;
+                        gGotPlayersList=1;
+                        $.get('o2pd/A/US',
+                        { },
+                        function(data, status){
+                            //x.innerHTML = data;
+                            setElem('s2',data);
+                        });    
+                    ">PLAYERS
+                    </a>
+                    <br>
+                    <a id="ss3"
+                    onclick="
+                        //switchSection('eventsdirSection','eventsA');
+                        scElem('s3');
+                        //var x = document.getElementById('eventsdirSection');
+                        //if(x.style.display=='none' || gGotEventsList) return;
+                        if(gGotEventsList) return;
+                        gGotEventsList=1;
+                        $.get('o3ed/A/US',
+                        { },
+                        function(data, status){
+                            //x.innerHTML = data;
+                            setElem('s3',data);
+                        });    
+                    ">TOURNAMENTS
+                    </a>
+                    <br>
+
+                    <a id='ss4'
+                        onclick='
+                        scElem("s4");
+                        //var data = "<h2>INFORMATION</h2> <h1>SIGN UP TO PLAY IN A TENNIS TOURNAMENT</h1> or <h1>CONTACT PLAYERS FOR INDIVIDUAL MATCHES</h1>";
+                        setElem("s4",info);
+                        //var x = document.getElementById("aboutSection");
+                        //if(x.style.display=="none" || gGotAbout) return;
+                        /*$.get("info.html",
+                            { },
+                            function(data, status){
+                                //x.innerHTML = data;
+                                setElem("s4",data);
+                                gGotAbout=1;
+                            });
+                            */    
+                        '>INFORMATION
+                    </a>
+                    
+                    <br>
+                    &nbsp; <a id='ss5'
+                        onclick='
+                        scElem("s5");
+                        //var x = document.getElementById("aboutSection");
+                        //if(x.style.display=="none" || gGotAbout) return;
+                        $.get("about.html",
+                            { },
+                            function(data, status){
+                                //x.innerHTML = data;
+                                setElem("s5",data);
+                                gGotAbout=1;
+                            });    
+                        '>About
+                    </a>
+                    <br>
+
+                    &nbsp; <a id='ss6'
+                        onclick='
+                        //switchSection("aboutSection","aboutAdmin");
+                        scElem("s6");
+                        //var x = document.getElementById("aboutSection");
+                        //if(x.style.display=="none" || gGotAbout) return;
+                        $.get("about-event-admin.html",
+                            { },
+                            function(data, status){
+                                setElem("s6",data);
+                                //x.innerHTML = data;
+                                //gGotAbout=1;
+                            });    
+                        '>Tournament director
+                    </a>
+        
+                    <br>
+                    &nbsp; <a id='ss7'
+                        onclick='
+                        //switchSection("aboutSection","aboutPrivacy");
+                        scElem("s7");
+                        //var x = document.getElementById("aboutSection");
+                        //if(x.style.display=="none" || gGotAbout) return;
+                        $.get("privacy.html",
+                            { },
+                            function(data, status){
+                                setElem("s7",data);
+                                //x.innerHTML = data;
+                                //gGotAbout=1;
+                            });    
+                        '>Privacy policy
+                    </a>
+        
+                    <br>
+                    &nbsp; <a id='ss8'
+                        onclick='
+                        //switchSection("aboutSection","contact");
+                        scElem("s8");
+                        //var x = document.getElementById("aboutSection");
+                        //if(x.style.display=="none" || gGotAbout) return;
+                        $.get("contact-us.php",
+                            { },
+                            function(data, status){
+                                setElem("s8",data);
+                                //x.innerHTML = data;
+                                //gGotAbout=1;
+                            });
+                        '>Contact us
+                    </a>
+        
+                    <br>
+
+                    <a id='ss9' 
+                        onclick='
+                        //switchSection("loginSection","loginA");
+                        scElem("s9");
+                        '>LOG IN
+                    </a>
+
+                    <!--br><br>
+                    <a href="signup">SIGN UP</a-->
+
+                    <br>____________<br>
+                
+                <script>
+                /*var gLastSection = '';
+                var gLastA= '';
+                function switchSection(elementid,eid){
+                    //document.getElementById('memberA').style.background='red';
+                    var newx = document.getElementById(elementid);
+                    var newy = document.getElementById(eid);
+                    if(newx.style.display == 'block'){
+                    newx.style.display = 'none';
+                    newy.style.background = 'gold';
+                    }else{
+                    newx.style.display = 'block';
+                    newy.style.background = 'red';
+                    }
+                    if(elementid != gLastSection){
+                    if(gLastSection != ''){
+                        document.getElementById(gLastSection).style.display = 'none';
+                        document.getElementById(gLastA).style.background = 'gold';
+                    }
+                    gLastSection = elementid;
+                    gLastA = eid;
+                    }
+                }*/
+
+                function setElem(elem,data){ document.getElementById(elem).innerHTML = data }
+                //function swE lem(o,c){ closeElement(c); openElement(o); }
+                function openElement(elementid){ document.getElementById(elementid).style.display = "block" }
+                function closeElement(elementid){ document.getElementById(elementid).style.display = "none" }
+                //function hide2(){ sw Elem('aS ect','s2') }
+                //function hide3(){ swE lem('aS ect','s3') }
+                var gPage = 's0';
+                var gColor = 'black';
+                function scElem(o){
+                    closeElement(gPage); 
+                    openElement(o);
+                    document.getElementById('s' + gPage).style.color = gColor;
+                    document.getElementById('s' + o).style.color = 'red';
+                    gPage = o;
+                }
+
+
+                function bgc(bg,color){
+                    document.body.style.background=bg;
+                    document.body.style.color=color;
+                    gColor = color;
+                }
+
+                var gGotPlayersList=0;
+                var gGotEventsList=0;
+                var gGotAbout=0;          
+                </script>
+            </header> 
+
+
+            <!--div id='aboutSection' style='display:none'></div>
+            <div id='playersdirSection' style='display:none'></div>
+            <div id='eventsdirSection' style='display:none'></div-->
+            <!--div id='loginSection' style='display:none'>
+                <br>
+                <form method="post" action="a">
+                    <input type="email" name="email" placeholder="email">
+                    <input type="password" name="password" placeholder="password">
+                    <button>Log in</button>
+                </form>     
+                <br>
+                <ul style="width:100px"><a href="signup">Sign up</a></ul>
+            </div-->    
+
+
+        <!--/section-->
+
+        <section id='ss0'></section><!--dummy-->
+        <section id='s2'></section><!--players-->
+        <section id='s3'></section><!--tournaments-->
+        <section id='s4'></section><!--information-->
+        <section id='s5'></section><!--about-->
+        <section id='s6'></section><!--host-->
+        <section id='s7'></section><!--privacy-->
+        <section id='s8'></section><!--contact-->
+        <section id='s9' style='display:none'>
+            <h2>LOG IN</h2>
+            <form method="post" action="a">
+                <input type="email" name="email" placeholder="email">
+                <input type="password" name="password" placeholder="password">
+                <button>Log in</button>
+            </form>
+            <br>
+            Need an account?<br>
+            <a href="signup">Sign up</a>
+        </section><!--login-->
+
+    </body>   
+    </html>
+            
